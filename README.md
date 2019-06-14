@@ -11,6 +11,7 @@ channel via a bot. A scheduler which refreshes every 5 seconds manages the scrap
     APScheduler		
 
 **Setting up telegram bot:**
+
 First of, you need to create a Telegram bot, if you haven't done this before its super easy you can look 
 [at:](https://core.telegram.org/bots#6-botfather)
 Take note of your bot token. The next thing is creating a public
@@ -26,6 +27,7 @@ In any Telegram client:
 That's it with the bot creation, now the interesting part.
 
 **Installing the required libraries:**
+
 Clone this repository and when its done, navigate to the cloned directory through the terminal. Run the following
 command to install all the required dependencies:
 	
