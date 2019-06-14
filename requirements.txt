@@ -1,0 +1,6 @@
+beautifulsoup4
+apscheduler
+torrequest
+telepot
+
+

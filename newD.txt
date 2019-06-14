@@ -1,0 +1,10 @@
+https://stackoverflow.com/questions/56599410/how-to-paste-text-input-with-line-breaks-into-a-script-without-this-running-the
+https://stackoverflow.com/questions/56599382/how-to-submit-a-spark-job-with-zip-having-main-py
+https://stackoverflow.com/questions/56599377/how-to-create-a-twitter-bot-that-replies-back-as-soon-as-another-person-tweets
+https://stackoverflow.com/questions/56599340/how-to-send-custom-headers-in-websocket-creation-in-javascript
+https://stackoverflow.com/questions/56599331/why-are-the-following-declarations-not-the-same
+https://stackoverflow.com/questions/56599306/word-not-in-vocabulary-after-training-gensim-word2vec-model-why
+https://stackoverflow.com/questions/56599303/how-to-send-a-context-in-a-view-based-on-class
+https://stackoverflow.com/questions/56599302/is-there-a-generic-way-to-detect-lighters-on-opencv-despite-shadows-or-backgroun
+https://stackoverflow.com/questions/56599299/how-to-efficiently-extract-lists-of-values-from-a-dictionary-when-searching-by-t
+https://stackoverflow.com/questions/56599297/how-to-detect-none-values-in-an-image
