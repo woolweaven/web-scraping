@@ -1,4 +1,4 @@
-#Web Scraping
+# Web Scraping
 This is a simple python3 code for webscraping. Basically what the program does is channelling requests through tor and 
 scrap for latest python-tagged questions [here](https://www.stackoverflow.com). Latest data is then sent to a telegram
 channel via a bot. A scheduler which refreshes every 5 seconds manages the scrapper.py
@@ -12,7 +12,7 @@ channel via a bot. A scheduler which refreshes every 5 seconds manages the scrap
 
 **Setting up telegram bot:**
 First of, you need to create a Telegram bot, if you haven't done this before its super easy you can look 
-[at]: (https://core.telegram.org/bots#6-botfather). Take note of your bot token. The next thing is creating a public
+[at:](https://core.telegram.org/bots#6-botfather). Take note of your bot token. The next thing is creating a public
 channel on telegram, take note of the group @username. Now make the bot an administrator to the channel;
 In any Telegram client:
 
@@ -28,7 +28,7 @@ That's it with the bot creation, now the interesting part.
 Clone this repository and when its done, navigate to the cloned directory through the terminal. Run the following
 command to install all the required dependencies:
 	
-*~:# pip3 install -r requirements.txt 
+    pip3 install -r requirements.txt 
 
 Now everything is set, only a few changes left.
 
@@ -58,24 +58,31 @@ you scrape the site. But if you dont feel comfortable with it, request standard 
 the difference is that your real IP is exposed.
 
 **DT_Fetcher()**
-class is responsible for making the scraping part. First a request is made, through looping around 
+
+is responsible for making the scraping part. First a request is made, through looping around 
 tags(html format), links to the questions are fetched. Note that at this point the link is not full. Which is why 
 the link is concatinated with the l1 variable, for a complete working URL. The URLs are saved a list up until it 
 gets to a length of 10. A with statement opens a text file *newD.txt*, then the contents of data are appended to the file.
 
 **DT_Sender()**
-class compares the contents of *newD.txt* with those *old.txt*. Differences in the file represent new data, new data
+
+compares the contents of *newD.txt* with those *old.txt*. Differences in the file represent new data, new data
 is sent to the telegram channel and *old.txt* is updated.
 
-The Scheduler.py is used to run the *scrapper.py*. This makes it almost possible to achieve real-time feed of questions 
+The *Scheduler.py* is used to run the *scrapper.py*. This makes it almost possible to achieve real-time feed of questions 
 being posted at any one moment.
 
 Contributions are greatly appreciated. Hope you find this code useful.
 
 **References and Resources:**
 [article on TorRequest](https://www.scrapehero.com/make-anonymous-requests-using-tor-python/)
+
 [Telepot Documentation](https://telepot.readthedocs.io/en/latest/)
+
 [Making your bot channel admin](https://telmemeber.com/single/7/Make-telegram-bot-your-channel-admin)
+
 [Free proxies](https://free-proxy-list.net/)
+
 [BeautifulSoup4 Documentation](https://pypi.org/project/beautifulsoup4/)
+
 [APScheduler Documentation](https://apscheduler.readthedocs.io/en/v3.6.0/userguide.html#code-examples)
