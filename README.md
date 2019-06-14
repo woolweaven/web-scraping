@@ -12,7 +12,8 @@ channel via a bot. A scheduler which refreshes every 5 seconds manages the scrap
 
 **Setting up telegram bot:**
 First of, you need to create a Telegram bot, if you haven't done this before its super easy you can look 
-[at:](https://core.telegram.org/bots#6-botfather). Take note of your bot token. The next thing is creating a public
+[at:](https://core.telegram.org/bots#6-botfather)
+Take note of your bot token. The next thing is creating a public
 channel on telegram, take note of the group @username. Now make the bot an administrator to the channel;
 In any Telegram client:
 
@@ -40,8 +41,8 @@ otherwise you can comment it. For the proxy, you can google and grab anything of
 proxies work great as well.
 
     bot = telepot.Bot('BOT_TOKEN') 
-speciefies your bot by taking your bot token generated earlier when you created a bot.
-Bot token in in this synthax: 123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ.
+specifies your bot by taking your bot token generated earlier when you created a bot.
+Bot token in in this syntax: 123456789:ABCdefGhIJKlmNoPQRsTUVwxyZ.
 
     tr = TorRequest(password='BLANK') 
 creates a tor request handler, unless you reconfigure tor, the password parameter 
@@ -51,11 +52,12 @@ should be left blank.
 creates a new hidden identity, ie assigns you a tor IP address.
 
     r = tr.get(l1 + '/questions/tagged/python/') 
-is the  actual request made to stackoverflow
+is the  actual request made to stackoverflow.
 
 I find it wise using the torrequest library as this keeps your identity hidden as
 you scrape the site. But if you dont feel comfortable with it, request standard library all works fine with no flaws, 
 the difference is that your real IP is exposed.
+
 
 **DT_Fetcher()**
 
@@ -75,6 +77,7 @@ being posted at any one moment.
 Contributions are greatly appreciated. Hope you find this code useful.
 
 **References and Resources:**
+
 [article on TorRequest](https://www.scrapehero.com/make-anonymous-requests-using-tor-python/)
 
 [Telepot Documentation](https://telepot.readthedocs.io/en/latest/)
