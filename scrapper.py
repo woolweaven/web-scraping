@@ -47,7 +47,7 @@ class DT_Getter():
                         break
 
         # save newly collected data.
-        with open('updated_file', 'w') as updated_file:
+        with open('updated_file.txt', 'w') as updated_file:
             for data_chuck in collected_data:
                 updated_file.write(f'{data_chuck}\n')
 
@@ -63,18 +63,20 @@ class DT_Sender():
 
     # updating the database by new data.
     data_tosend = []
-    for data_chuck in update_database:
+    for index, data_chuck in enumerate(update_database):
         if data_chuck in update_data:
 
             # sending to telegram channel
             print('---> updating the database.')
-            bot.sendMessage(chat_id=chat_id, text='updating...') 
+            data_tosend.append(f'{index}.   {data_chuck} \n\n') 
 
             with open('database.txt', 'a') as database_file:
                 database_file.write(data_chuck.strip()+'\n') # updating data
 
             print(f'{data_chuck.strip()}')
 
+    if data_tosend:
+        bot.sendMessage(chat_id=chat_id, text=''.join(data_tosend))
 
 if __name__ == '__main__':
     DT_Getter()
