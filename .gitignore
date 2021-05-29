@@ -1,0 +1,7 @@
+env/
+.vscode/
+
+# ignore files that contains credentials.
+credentials.json
+newD.txt
+old.txt

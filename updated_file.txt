@@ -1,0 +1,10 @@
+https://stackoverflow.com/questions/67750011/smoothing-a-curve-with-vectors-made-by-few-elements
+https://stackoverflow.com/questions/67749988/matplotlib-scatter-not-working-inside-function
+https://stackoverflow.com/questions/67749977/python-plotting-with-error-bar-in-seaborn-scatter-plot
+https://stackoverflow.com/questions/67749961/trying-to-position-my-labels-properly-but-it-doesnt-work
+https://stackoverflow.com/questions/67749929/how-to-use-a-self-function-inside-of-a-boolean-comparison
+https://stackoverflow.com/questions/67749910/how-do-i-get-multiple-outputs-for-2-simultaneous-equations-in-python
+https://stackoverflow.com/questions/67749909/sas-table-editor-from-another-application
+https://stackoverflow.com/questions/67749902/webscraping-how-to-deal-with-na-values-in-a-dataframe-returned
+https://stackoverflow.com/questions/67749897/error-command-errored-out-with-exit-status-1-python-setup-py-egg-info-check-th
+https://stackoverflow.com/questions/67749875/formatting-this-code-correctly-to-execute-correctly

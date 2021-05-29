@@ -11,6 +11,8 @@ Usage:  python scheduler.py
 '''
 
 import os
+import sys
+
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
 try:
@@ -18,16 +20,18 @@ try:
 except ImportError:
     import trollius as asyncio
 
-def my_job():
+def start_scrapping():
     os.system('python3 scrapper.py')
 
 if __name__ == '__main__':
     scheduler = AsyncIOScheduler()
-    scheduler.add_job(my_job, 'interval', seconds=3)
+
+    interval_cycle = 3
+    scheduler.add_job(start_scrapping, 'interval', seconds = interval_cycle)
     scheduler.start()
-    print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
 
     # Execution will block here until Ctrl+C is pressed.
+    print(f'Press Ctrl+{"Break" if sys.platform == "win32" else "C"} to exit')
     try:
         asyncio.get_event_loop().run_forever()
     except (KeyboardInterrupt, SystemExit):
