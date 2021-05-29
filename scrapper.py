@@ -62,20 +62,20 @@ class DT_Sender():
     update_data = set(update_database) - set(database)     
 
     # updating the database by new data.
-    data_tosend = []
+    data_tosend = ['Updates \n\n\n']
     for index, data_chuck in enumerate(update_database):
         if data_chuck in update_data:
 
             # sending to telegram channel
             print('---> updating the database.')
-            data_tosend.append(f'{index}.   {data_chuck} \n\n') 
+            data_tosend.append(f'{ f"{index}.     " if len(update_data) > 1 else ""}{data_chuck} \n\n') 
 
             with open('database.txt', 'a') as database_file:
                 database_file.write(data_chuck.strip()+'\n') # updating data
 
             print(f'{data_chuck.strip()}')
 
-    if data_tosend:
+    if len(data_tosend)  > 1:
         bot.sendMessage(chat_id=chat_id, text=''.join(data_tosend))
 
 if __name__ == '__main__':
