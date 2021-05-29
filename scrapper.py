@@ -27,47 +27,53 @@ request_string = 'https://stackoverflow.com'
 response_data = tor_request.get(request_string + '/questions/tagged/python/')
 
 
+
 class DT_Getter():
-    new_data = [] # create an empty list
+    collected_data = [] # create an empty list
     if response_data.status_code == 200:  # checking internet availability
 
         # creating the soup though the html.parser
-        source = response_data.text
-        soup = BeautifulSoup(source, 'html.parser')
+        data_source = response_data.text
+        bs_soup = BeautifulSoup(data_source, 'html.parser')
 
-        ''' .find_all() is a method that is used to search for all contents matching
-            the specified parameters(tags). Tags are used to locate the desired content'''
-        for summary in soup.find_all('div', class_='summary'):
-            for title in summary('h3'):
-                for link in title.find_all('a', class_='question-hyperlink'):
-                    #add the scraped data to the list, while the condition still holds
-                    while len(new_data) < 10:
-                        new_data.append(request_string + link.get('href'))
+        # matching tags with 'div tag'
+        for question_summary in bs_soup.find_all('div', class_='summary'):
+            for question_title in question_summary('h3'):
+                for question_link in question_title.find_all('a', class_='question-hyperlink'):
+
+                    # collect data from data_source.
+                    while len(collected_data) < 10:
+                        collected_data.append(request_string + question_link.get('href'))
                         break
 
-        # open a text file and save the new scraped data
-        with open('newD.txt', 'w') as f:
-            for i in new_data:
-                f.write('%s\n' % i)
+        # save newly collected data.
+        with open('updated_file', 'w') as updated_file:
+            for data_chuck in collected_data:
+                updated_file.write(f'{data_chuck}\n')
 
 class DT_Sender():
     chat_id = credentials['chat_id']   # telegram channel chat_id
 
     # open files and strip them line by line
-    oldln = open('old.txt').read().split('\n')
-    newln = open('newD.txt').read().split('\n')
+    database = open('database.txt').read().split('\n')
+    update_database = open('updated_file').read().split('\n')
 
-    updln = set(newln) - set(oldln)     # get the difference between files
+    # get the difference between files
+    update_data = set(update_database) - set(database)     
 
-    '''finding new lines which didn't exist int the old file send them to tg, 
-    and update old.txt'''
-    for ln in newln:
-        if ln in updln:
-            print('---> sending sms...')
-            bot.sendMessage(chat_id=chat_id, text='hi') #sending to tg channel
-            with open('old.txt', 'a') as fout:
-                fout.write(ln.strip()+'\n') # updating data
-            print('[+]', ln.strip())
+    # updating the database by new data.
+    data_tosend = []
+    for data_chuck in update_database:
+        if data_chuck in update_data:
+
+            # sending to telegram channel
+            print('---> updating the database.')
+            bot.sendMessage(chat_id=chat_id, text='updating...') 
+
+            with open('database.txt', 'a') as database_file:
+                database_file.write(data_chuck.strip()+'\n') # updating data
+
+            print(f'{data_chuck.strip()}')
 
 
 if __name__ == '__main__':

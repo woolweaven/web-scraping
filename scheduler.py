@@ -29,9 +29,9 @@ if __name__ == '__main__':
     interval_cycle = 3
     scheduler.add_job(start_scrapping, 'interval', seconds = interval_cycle)
     scheduler.start()
-    print(f'Press Ctrl+{"Break" if sys.platform == "win32" else "C"} to exit')
 
     # Execution will block here until Ctrl+C is pressed.
+    print(f'Press Ctrl+{"Break" if sys.platform == "win32" else "C"} to exit')
     try:
         asyncio.get_event_loop().run_forever()
     except (KeyboardInterrupt, SystemExit):
