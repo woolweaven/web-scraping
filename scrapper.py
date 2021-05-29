@@ -1,21 +1,38 @@
+from stem import response
 from torrequest import TorRequest
 from bs4 import BeautifulSoup
 import telepot
+import json
+
+
+#Loading credentials.
+credentials = {}
+with open('credentials.json', 'r') as credentials_file:
+    credentials = json.load(credentials_file)
+
 
 #telepot.api.set_proxy('https://163.172.153.156:3128')
-bot = telepot.Bot('***BOT_TOKEN_GOES_HERE***')
-tr=TorRequest(password='BLANK')
-tr.reset_identity()
 
-l1 = 'https://stackoverflow.com'
-r = tr.get(l1 + '/questions/tagged/python/')
+# Creating the bot. 
+TOKEN = credentials['bot_token']
+bot = telepot.Bot(token=TOKEN)
+
+# Creating tor object.
+PASSWORD = credentials['tor_password']
+tor_request = TorRequest(password=PASSWORD)
+tor_request.reset_identity()
+
+#creating the request.
+request_string = 'https://stackoverflow.com'
+response_data = tor_request.get(request_string + '/questions/tagged/python/')
+
 
 class DT_Getter():
     new_data = [] # create an empty list
-    if r.status_code == 200:  # checking internet availability
+    if response_data.status_code == 200:  # checking internet availability
 
         # creating the soup though the html.parser
-        source = r.text
+        source = response_data.text
         soup = BeautifulSoup(source, 'html.parser')
 
         ''' .find_all() is a method that is used to search for all contents matching
@@ -25,7 +42,7 @@ class DT_Getter():
                 for link in title.find_all('a', class_='question-hyperlink'):
                     #add the scraped data to the list, while the condition still holds
                     while len(new_data) < 10:
-                        new_data.append(l1 + link.get('href'))
+                        new_data.append(request_string + link.get('href'))
                         break
 
         # open a text file and save the new scraped data
@@ -34,7 +51,7 @@ class DT_Getter():
                 f.write('%s\n' % i)
 
 class DT_Sender():
-    username = '@pythonstackoverflowqns'    # telegram channel user_id
+    chat_id = credentials['chat_id']   # telegram channel chat_id
 
     # open files and strip them line by line
     oldln = open('old.txt').read().split('\n')
@@ -46,10 +63,12 @@ class DT_Sender():
     and update old.txt'''
     for ln in newln:
         if ln in updln:
-            bot.sendMessage(username, ln.strip()) #sending to tg channel
+            print('---> sending sms...')
+            bot.sendMessage(chat_id=chat_id, text='hi') #sending to tg channel
             with open('old.txt', 'a') as fout:
                 fout.write(ln.strip()+'\n') # updating data
             print('[+]', ln.strip())
+
 
 if __name__ == '__main__':
     DT_Getter()
