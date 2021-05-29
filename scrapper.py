@@ -56,7 +56,7 @@ class DT_Sender():
 
     # open files and strip them line by line
     database = open('database.txt').read().split('\n')
-    update_database = open('updated_file').read().split('\n')
+    update_database = open('updated_file.txt').read().split('\n')
 
     # get the difference between files
     update_data = set(update_database) - set(database)     

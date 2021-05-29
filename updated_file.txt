@@ -8,3 +8,13 @@ https://stackoverflow.com/questions/67749197/sqlalchemy-clean-way-to-filter-all-
 https://stackoverflow.com/questions/67749196/delete-rows-where-specific-coloums-contain-some-value
 https://stackoverflow.com/questions/67749164/tk-inter-error-frame-object-is-not-callable
 https://stackoverflow.com/questions/67749153/how-can-i-execute-a-python-script-in-a-react-js-web-application
+https://stackoverflow.com/questions/67749474/how-to-find-height-of-a-binary-tree-in-python-using-recursuin
+https://stackoverflow.com/questions/67749469/how-can-i-make-a-selection-of-an-element-using-a-for-loop-in-python-kivy
+https://stackoverflow.com/questions/67749444/minimal-example-pyqt5-qml-qss
+https://stackoverflow.com/questions/67749443/how-do-i-link-cells-in-jupyterlab-together
+https://stackoverflow.com/questions/67749437/how-to-write-between-logic-in-np-where-in-python
+https://stackoverflow.com/questions/67749432/after-my-webpage-is-loaded-i-want-to-send-data-to-frontend-in-flask
+https://stackoverflow.com/questions/67749424/getting-valueerror-cannot-reindex-from-a-duplicate-axis-as-i-want-to-multip
+https://stackoverflow.com/questions/67749411/i-need-to-reprint-my-input-but-only-my-sentinel-is-being-printed
+https://stackoverflow.com/questions/67749406/im-getting-the-discount-not-the-discounted-price
+https://stackoverflow.com/questions/67749404/error-1064-error-near-when-using-executeinsert-from-python
